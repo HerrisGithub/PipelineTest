@@ -28,7 +28,7 @@ pipeline {
     }
     stage ('Deploy') {
       steps{
-        sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline'
+        sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline '
       }
     }
   }
