@@ -35,6 +35,7 @@ pipeline {
   }
   post {
         always {
+            echo 'a'
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline'
         }
         success {
