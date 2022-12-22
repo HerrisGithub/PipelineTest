@@ -28,8 +28,22 @@ pipeline {
     }
     stage ('Deploy') {
       steps{
-        sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline '
+       echo 'Deploy'
       }
     }
   }
+  post {
+        always {
+            error "I AM FAILING NOW"
+        }
+        success {
+           sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline'
+        }
+        failure {
+            echo "I FAILED"
+        }
+        cleanup {
+            echo "I RAN ANYWAY"
+        }
+    }
 }
