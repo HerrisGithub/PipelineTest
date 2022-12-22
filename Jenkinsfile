@@ -28,17 +28,16 @@ pipeline {
     }
     stage ('Deploy') {
       steps{
-       echo 'Deploy'
+       sh 'node index'
       }
     }
   }
   post {
-    
-        // always {
-        //     error "I AM FAILING NOW"
-        // }
-        success {
+        always {
            sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline'
+        }
+        success {
+            echo "Success"
         }
         failure {
             echo "I FAILED"
