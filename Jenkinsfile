@@ -33,9 +33,9 @@ pipeline {
     }
   }
   post {
-        always {
-            error "I AM FAILING NOW"
-        }
+        // always {
+        //     error "I AM FAILING NOW"
+        // }
         success {
            sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline'
         }
