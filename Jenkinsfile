@@ -28,7 +28,7 @@ pipeline {
     }
     stage ('Deploy') {
       steps{
-       sh 'node index'
+       echo 'sudah berhasil'
       }
     }
   }
