@@ -24,8 +24,7 @@ pipeline {
       steps {
         script {
           try {
-            // sh 'npm install'
-            echo 'test';
+            sh 'npm install'
           } catch (exc) {
             echo "error install"
             result = 'FAIL'
