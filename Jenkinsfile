@@ -1,12 +1,13 @@
 pipeline {
   agent any
-  author = ""
-  email = ""
+
   stages {
     stage("SCM"){
       steps {
         script {
           try {
+            author = ""
+            email = ""
             // def author = ""
             // def changeSet = currentBuild.rawBuild.changeSets               
             // for (int i = 0; i < changeSet.size(); i++) 
