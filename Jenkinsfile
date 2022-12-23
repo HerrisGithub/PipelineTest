@@ -5,14 +5,15 @@ pipeline {
       steps {
         script {
           try {
-            echo "Semua Value ${currentBuild.changeSet.toString()}"
+            echo "Semua Value ${currentBuild.changeSets.toString()}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
            git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
           } catch (exc) {
-            echo "Error SCM: ${exc.toString()}";
+            echo "Error SCM: ${exc.toString()}"
             result = 'FAIL'
+            currentBuild.result = 'FAILURE'
           }
         }
       }
