@@ -18,8 +18,7 @@ pipeline {
             //         author += "${entry.author}"
             //     } 
             // }
-            author = currentBuild.changeSets[0].items[0].author.fullName;
-            echo "Author is ${author}"
+            echo "Author is ${currentBuild.changeSets[0].items[0].author.fullName}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
