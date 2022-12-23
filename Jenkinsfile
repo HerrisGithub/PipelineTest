@@ -9,10 +9,10 @@ pipeline {
             def changeSet = currentBuild.rawBuild.changeSets               
             for (int i = 0; i < changeSet.size(); i++) 
             {
-            def entries = changeSet[i].items;
-            for (int i = 0; i < changeSet.size(); i++) 
+                def entries = changeSet[i].items;
+                for (int j = 0; j < changeSet.size(); j++) 
                 {
-                    def entries = changeSet[i].items;
+                    def entries = changeSet[j].items;
                     def entry = entries[0]
                     author += "${entry.author}"
                 } 
