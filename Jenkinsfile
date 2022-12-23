@@ -37,7 +37,7 @@ pipeline {
   }
   post {
         always {
-             echo "Semua Value ${currentBuild.changeSets[0].commitId.toString()}"
+             echo "Semua Value ${currentBuild.changeSets.getItems()}"
             echo 'a'
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline'
         }
