@@ -3,9 +3,8 @@ pipeline {
   stages {
     stage("SCM"){
       steps {
-        def author = ""
-        def item
-        script {
+        // script {
+          
           try {
             git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
             if(currentBuild.changeSets && currentBuild.changeSets[0].items){
@@ -26,7 +25,7 @@ pipeline {
             result = 'FAIL'
             currentBuild.result = 'FAILURE'
           }
-        }
+        // }
       }
     }
     stage("Build"){
