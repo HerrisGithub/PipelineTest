@@ -27,7 +27,7 @@ pipeline {
                 author = item.author.fullName
                 // email = item.authorEmail
                 commitId = item.commitId
-                comment = item.comment
+                // comment = item.comment
                 date = new Date( item.timestamp ).toString()
             }
             echo "Author is ${author}"
@@ -48,7 +48,8 @@ pipeline {
       steps {
         script {
           try {
-            sh 'npm install'
+            // sh 'npm install'
+            echo 'testing'
           } catch (exc) {
             echo "error install"
             result = 'FAIL'
