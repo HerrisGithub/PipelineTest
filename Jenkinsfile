@@ -4,7 +4,7 @@ pipeline {
      author = ""
      commitId = ""
      date = ""
-    //  item = null
+     changeSets
   }
   stages {
     stage("SCM"){
