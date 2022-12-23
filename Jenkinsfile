@@ -25,7 +25,7 @@ pipeline {
             if(currentBuild.changeSets && currentBuild.changeSets[0].items){
                 item = currentBuild.changeSets[0].items[0];
                 author = item.author.fullName
-                email = item.authorEmail
+                // email = item.authorEmail
                 commitId = item.commitId
                 comment = item.comment
                 date = new Date( item.timestamp ).toString()
