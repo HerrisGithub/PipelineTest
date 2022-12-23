@@ -1,12 +1,15 @@
 def author = "foo"
 pipeline {
   agent any
+  environment {
+     author = ""
+  }
   stages {
     stage("SCM"){
       steps {
+        git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
         script {
           try {
-            git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
             if(currentBuild.changeSets && currentBuild.changeSets[0].items){
                 // item = currentBuild.changeSets[0].items[0];
                 author = currentBuild.changeSets[0].items[0].author.fullName
