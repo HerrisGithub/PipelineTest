@@ -1,4 +1,3 @@
-def author = "foo"
 pipeline {
   agent any
   environment {
