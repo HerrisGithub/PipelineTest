@@ -5,6 +5,19 @@ pipeline {
       steps {
         script {
           try {
+            def author = ""
+            def changeSet = currentBuild.rawBuild.changeSets               
+            for (int i = 0; i < changeSet.size(); i++) 
+            {
+            def entries = changeSet[i].items;
+            for (int i = 0; i < changeSet.size(); i++) 
+                {
+                    def entries = changeSet[i].items;
+                    def entry = entries[0]
+                    author += "${entry.author}"
+                } 
+            }
+            echo "Author is ${author}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
@@ -37,7 +50,6 @@ pipeline {
   }
   post {
         always {
-             echo "Semua Value ${currentBuild.changeSets[0].dump()}"
             echo 'a'
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline'
         }
