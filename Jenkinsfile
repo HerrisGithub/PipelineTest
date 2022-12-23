@@ -1,8 +1,8 @@
 pipeline {
   agent any
   environment {
-     author = "",
-     commitId = "",
+     author = ""
+     commitId = ""
      date = ""
   }
   stages {
