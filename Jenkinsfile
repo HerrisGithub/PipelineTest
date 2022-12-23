@@ -13,21 +13,8 @@ pipeline {
         git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
         script {
           try {
-            // if(currentBuild.changeSets && currentBuild.changeSets[0].items){
-            //     author = currentBuild.changeSets[0].items[0].author.fullName
-            //     // email = item.authorEmail
-            //     commitId =  currentBuild.changeSets[0].items[0].commitId
-            //     // comment = item.comment
-            //     date = new Date(currentBuild.changeSets[0].items[0].timestamp ).toString()
-            // }
-            // echo "Author is ${author}"
-            // echo "Build number is ${currentBuild.number}"
-            // echo "Result is ${currentBuild.result}"
-            // echo "email is ${currentBuild.changeSets[0].items[0].comment}"
-           sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline'
+           sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
           } catch (exc) {
-            echo "Error SCM: ${exc.toString()}"
-            result = 'FAIL'
             currentBuild.result = 'FAILURE'
           }
         }
@@ -54,7 +41,7 @@ pipeline {
   }
   post {
         always {
-            echo 'a'
+           echo 'a'
            sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline'
         }
         success {
