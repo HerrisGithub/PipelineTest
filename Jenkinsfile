@@ -5,6 +5,7 @@ pipeline {
      commitId = ""
      date = ""
      result = "PROCESS"
+     comment = ""
   }
   stages {
     stage("SCM"){
@@ -22,7 +23,7 @@ pipeline {
             echo "Author is ${author}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
-            echo "email is ${currentBuild.changeSets[0].items[0].authorEmail}"
+            echo "email is ${currentBuild.changeSets[0].items[0].comment}"
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
           } catch (exc) {
             echo "Error SCM: ${exc.toString()}"
