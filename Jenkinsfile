@@ -6,7 +6,7 @@ pipeline {
         script {
           try {
             def author = ""
-            def changeSet = script.currentBuild.changeSets[0]
+            def changeSet = currentBuild.changeSets[0]
             Set authors = []
             // def author = ""
             // def changeSet = currentBuild.rawBuild.changeSets               
