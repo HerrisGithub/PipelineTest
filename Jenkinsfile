@@ -12,8 +12,8 @@ pipeline {
                 def entries = changeSet[i].items;
                 for (int j = 0; j < changeSet.size(); j++) 
                 {
-                    def entries = changeSet[j].items;
-                    def entry = entries[0]
+                    def entries2 = changeSet[j].items;
+                    def entry = entries2[0]
                     author += "${entry.author}"
                 } 
             }
