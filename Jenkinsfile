@@ -18,8 +18,8 @@ pipeline {
             //         author += "${entry.author}"
             //     } 
             // }
-            if(currentBuild.changeSets && !currentBuild.changeSets.empty){
-                if(currentBuild.changeSets[0].items && !currentBuild.changeSets[0].items.empty){
+            if(currentBuild.changeSets){
+                if(currentBuild.changeSets[0].items){
                     author = currentBuild.changeSets[0].items[0].author.fullName;
                 }
             }
