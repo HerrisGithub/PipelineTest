@@ -5,19 +5,19 @@ pipeline {
       steps {
         script {
           try {
-            def author = ""
-            def changeSet = currentBuild.rawBuild.changeSets               
-            for (int i = 0; i < changeSet.size(); i++) 
-            {
-                def entries = changeSet[i].items;
-                for (int j = 0; j < changeSet.size(); j++) 
-                {
-                    def entries2 = changeSet[j].items;
-                    def entry = entries2[0]
-                    author += "${entry.author}"
-                } 
-            }
-            echo "Author is ${author}"
+            // def author = ""
+            // def changeSet = currentBuild.rawBuild.changeSets               
+            // for (int i = 0; i < changeSet.size(); i++) 
+            // {
+            //     def entries = changeSet[i].items;
+            //     for (int j = 0; j < changeSet.size(); j++) 
+            //     {
+            //         def entries2 = changeSet[j].items;
+            //         def entry = entries2[0]
+            //         author += "${entry.author}"
+            //     } 
+            // }
+            echo "Author is ${currentBuild.changeSets[0].items[0].author.fullName}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
