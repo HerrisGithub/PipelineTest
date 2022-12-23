@@ -1,9 +1,9 @@
+def author = "foo"
 pipeline {
   agent any
   stages {
     stage("SCM"){
       steps {
-        author = ""
         script {
           try {
             git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
