@@ -3,10 +3,6 @@ pipeline {
   stages {
     stage("SCM"){
       steps {
-         author = ""
-        // email = ""
-        commitId = ""
-        date = ""
         script {
           try {
             git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
