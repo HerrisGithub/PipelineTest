@@ -18,8 +18,10 @@ pipeline {
             //         author += "${entry.author}"
             //     } 
             // }
-            if(currentBuild.changeSets && currentBuild.changeSets[0].items){
-                author = currentBuild.changeSets[0].items[0].author.fullName;
+            if(currentBuild.changeSets && !currentBuild.changeSets.empty){
+                if(currentBuild.changeSets[0].items && !currentBuild.changeSets[0].items.empty){
+                    author = currentBuild.changeSets[0].items[0].author.fullName;
+                }
             }
             echo "Author is ${author}"
             echo "Build number is ${currentBuild.number}"
