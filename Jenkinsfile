@@ -6,6 +6,8 @@ pipeline {
         script {
           try {
             def author = ""
+            def changeSet = script.currentBuild.changeSets[0]
+            Set authors = []
             // def author = ""
             // def changeSet = currentBuild.rawBuild.changeSets               
             // for (int i = 0; i < changeSet.size(); i++) 
@@ -18,9 +20,9 @@ pipeline {
             //         author += "${entry.author}"
             //     } 
             // }
-            if(currentBuild.changeSets){
-                if(currentBuild.changeSets[0].items){
-                    author = currentBuild.changeSets[0].items[0].author.fullName;
+            if (changeSet != null) {
+                for (change in changeSet.items) {
+                    authors.add(GetUserEmail{user=change.author})
                 }
             }
             echo "Author is ${author}"
