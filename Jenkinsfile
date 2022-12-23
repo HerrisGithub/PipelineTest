@@ -3,13 +3,14 @@ pipeline {
   stages {
     stage("SCM"){
       steps {
+         author = ""
+        // email = ""
+        commitId = ""
+        date = ""
         script {
           try {
             git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
-            author = ""
-            // email = ""
-            commitId = ""
-            date = ""
+           
             // def author = ""
             // def changeSet = currentBuild.rawBuild.changeSets               
             // for (int i = 0; i < changeSet.size(); i++) 
@@ -31,7 +32,6 @@ pipeline {
                 date = new Date( item.timestamp ).toString()
             }
             echo "Author is ${author}"
-            echo "Author is ${currentBuild.changeSets[0].items[0].author.fullName}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
             echo "Date is ${date}"
