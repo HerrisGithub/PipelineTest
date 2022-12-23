@@ -1,5 +1,7 @@
 pipeline {
   agent any
+  author = ""
+  email = ""
   stages {
     stage("SCM"){
       steps {
@@ -17,6 +19,10 @@ pipeline {
             //         author += "${entry.author}"
             //     } 
             // }
+            if(currentBuild.changeSets && currentBuild.changeSets[0].items){
+                author = currentBuild.changeSets[0].items[0].author.fullName
+            }
+            echo "Author is ${author}"
             echo "Author is ${currentBuild.changeSets[0].items[0].author.fullName}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
