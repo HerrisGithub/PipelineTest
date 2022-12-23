@@ -13,7 +13,7 @@ pipeline {
         script {
           try {
             if(currentBuild.changeSets && currentBuild.changeSets[0].items){
-                def changeSets = currentBuild.changeSets;
+                changeSets = currentBuild.changeSets;
                 // def item = currentBuild.changeSets[0].items[0]
                 // item = currentBuild.changeSets[0].items[0];
                 author = changeSets.items[0].author.fullName
