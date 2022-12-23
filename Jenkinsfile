@@ -4,7 +4,7 @@ pipeline {
      author = ""
      commitId = ""
      date = ""
-     item = null
+    //  item = null
   }
   stages {
     stage("SCM"){
@@ -13,12 +13,12 @@ pipeline {
         script {
           try {
             if(currentBuild.changeSets && currentBuild.changeSets[0].items){
-                item = currentBuild.changeSets[0].items[0];
+                // item = currentBuild.changeSets[0].items[0];
                 author = currentBuild.changeSets[0].items[0].author.fullName
                 // email = item.authorEmail
-                commitId = item.commitId
+                commitId =  currentBuild.changeSets[0].items[0].commitId
                 // comment = item.comment
-                date = new Date( item.timestamp ).toString()
+                date = new Date(currentBuild.changeSets[0].items[0].timestamp ).toString()
             }
             echo "Author is ${author}"
             echo "Build number is ${currentBuild.number}"
