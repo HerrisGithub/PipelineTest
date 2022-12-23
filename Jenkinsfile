@@ -5,7 +5,7 @@ pipeline {
       steps {
         script {
           try {
-            echo "Semua Value ${currentBuild.toString()}"
+            echo "Semua Value ${currentBuild.keySet()}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
             echo "Commit ID : ${currentBuild.hangeSets.items[0].commitId}"
