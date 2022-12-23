@@ -5,7 +5,6 @@ pipeline {
       steps {
         script {
           try {
-            def author = ""
             // def author = ""
             // def changeSet = currentBuild.rawBuild.changeSets               
             // for (int i = 0; i < changeSet.size(); i++) 
