@@ -1,7 +1,9 @@
 pipeline {
   agent any
   environment {
-     author = ""
+     author = "",
+     commitId = "",
+     date = ""
   }
   stages {
     stage("SCM"){
@@ -10,17 +12,17 @@ pipeline {
         script {
           try {
             if(currentBuild.changeSets && currentBuild.changeSets[0].items){
-                // item = currentBuild.changeSets[0].items[0];
+                item = currentBuild.changeSets[0].items[0];
                 author = currentBuild.changeSets[0].items[0].author.fullName
                 // email = item.authorEmail
-                // commitId = item.commitId
+                commitId = item.commitId
                 // comment = item.comment
-                // date = new Date( item.timestamp ).toString()
+                date = new Date( item.timestamp ).toString()
             }
-            // echo "Author is ${author}"
-            // echo "Build number is ${currentBuild.number}"
-            // echo "Result is ${currentBuild.result}"
-            // echo "Date is ${date}"
+            echo "Author is ${author}"
+            echo "Build number is ${currentBuild.number}"
+            echo "Result is ${currentBuild.result}"
+            echo "Date is ${date}"
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
           } catch (exc) {
             echo "Error SCM: ${exc.toString()}"
