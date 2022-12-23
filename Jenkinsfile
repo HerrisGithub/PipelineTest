@@ -5,7 +5,6 @@ pipeline {
       steps {
         script {
           try {
-            echo "Semua Value ${currentBuild.changeSets[0].commitId.toString()}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
@@ -38,6 +37,7 @@ pipeline {
   }
   post {
         always {
+             echo "Semua Value ${currentBuild.changeSets[0].commitId.toString()}"
             echo 'a'
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-end?ProjectName=pipeline'
         }
