@@ -8,6 +8,7 @@ pipeline {
             echo "Semua Value ${currentBuild.toString()}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
+            echo "Commit ID : ${currentBuild.hangeSets.items[0].commitId}"
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
            git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
           } catch (exc) {
