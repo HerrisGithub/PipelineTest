@@ -6,6 +6,7 @@ pipeline {
       steps {
         script {
           try {
+            git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
             author = ""
             email = ""
             commitId = ""
@@ -34,8 +35,8 @@ pipeline {
             echo "Author is ${currentBuild.changeSets[0].items[0].author.fullName}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
+            echo "Date is ${date}"
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
-           git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
           } catch (exc) {
             echo "Error SCM: ${exc.toString()}"
             result = 'FAIL'
