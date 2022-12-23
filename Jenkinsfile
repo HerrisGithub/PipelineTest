@@ -18,7 +18,7 @@ pipeline {
             //         author += "${entry.author}"
             //     } 
             // }
-            if({currentBuild.changeSets && currentBuild.changeSets[0].items){
+            if(currentBuild.changeSets && currentBuild.changeSets[0].items){
                 author = currentBuild.changeSets[0].items[0].author.fullName;
             }
             echo "Author is ${author}"
