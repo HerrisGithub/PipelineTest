@@ -5,7 +5,7 @@ pipeline {
       steps {
         script {
           try {
-            echo "Semua Value ${currentBuild.changeSets.toString()}"
+            echo "Semua Value ${currentBuild.changeSets[0].toString()}"
             echo "Build number is ${currentBuild.number}"
             echo "Result is ${currentBuild.result}"
         //    sh 'curl -X POST https://pin.waruna.id/jenkins/build-start?ProjectName=pipeline'
