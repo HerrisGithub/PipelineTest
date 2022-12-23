@@ -3,6 +3,8 @@ pipeline {
   stages {
     stage("SCM"){
       steps {
+        def author = ""
+        def item
         script {
           try {
             git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
@@ -10,7 +12,7 @@ pipeline {
                 item = currentBuild.changeSets[0].items[0];
                 author = item.author.fullName
                 // email = item.authorEmail
-                commitId = item.commitId
+                // commitId = item.commitId
                 // comment = item.comment
                 // date = new Date( item.timestamp ).toString()
             }
