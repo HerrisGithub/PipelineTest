@@ -8,6 +8,8 @@ pipeline {
           try {
             author = ""
             email = ""
+            commitId = ""
+            date = ""
             // def author = ""
             // def changeSet = currentBuild.rawBuild.changeSets               
             // for (int i = 0; i < changeSet.size(); i++) 
@@ -21,7 +23,12 @@ pipeline {
             //     } 
             // }
             if(currentBuild.changeSets && currentBuild.changeSets[0].items){
-                author = currentBuild.changeSets[0].items[0].author.fullName
+                item = currentBuild.changeSets[0].items[0];
+                author = item.author.fullName
+                email = item.authorEmail
+                commitId = item.commitId
+                comment = item.comment
+                date = new Date( item.timestamp ).toString()
             }
             echo "Author is ${author}"
             echo "Author is ${currentBuild.changeSets[0].items[0].author.fullName}"
