@@ -1,6 +1,5 @@
 pipeline {
   agent any
-
   stages {
     stage("SCM"){
       steps {
@@ -49,8 +48,7 @@ pipeline {
       steps {
         script {
           try {
-            // sh 'npm install'
-            echo 'testing'
+            sh 'npm install'
           } catch (exc) {
             echo "error install"
             result = 'FAIL'
