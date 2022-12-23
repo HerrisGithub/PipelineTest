@@ -6,14 +6,14 @@ pipeline {
         script {
           try {
             git branch: 'main', credentialsId: 'ef42a039-acc0-417d-8985-977114546084', url: 'https://github.com/HerrisGithub/PipelineTest.git'
-            // if(currentBuild.changeSets && currentBuild.changeSets[0].items){
-            //     item = currentBuild.changeSets[0].items[0];
-            //     author = item.author.fullName
-            //     // email = item.authorEmail
-            //     commitId = item.commitId
-            //     // comment = item.comment
-            //     date = new Date( item.timestamp ).toString()
-            // }
+            if(currentBuild.changeSets && currentBuild.changeSets[0].items){
+                item = currentBuild.changeSets[0].items[0];
+                author = item.author.fullName
+                // email = item.authorEmail
+                commitId = item.commitId
+                // comment = item.comment
+                // date = new Date( item.timestamp ).toString()
+            }
             // echo "Author is ${author}"
             // echo "Build number is ${currentBuild.number}"
             // echo "Result is ${currentBuild.result}"
